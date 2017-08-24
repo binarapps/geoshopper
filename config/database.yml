@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: geoshopper_development
+  username: geoshopper
+  password: geoshopper
+test:
+  <<: *default
+  database: geoshopper_test
+  username: geoshopper
+  password: geoshopper
+production:
+  <<: *default
+  database: geoshopper_production
+  username: geoshopper
+  password: <%= ENV['GEOSHOPPER_DATABASE_PASSWORD'] %>
